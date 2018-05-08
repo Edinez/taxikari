@@ -8,9 +8,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     } </style>
 <div class="container">
     <h3> Tabulka zakaznici </h3>
+
     <a class=" btn btn-success" href="<?php echo site_url('home/create');?>">
         Pridaj zákazníka
     </a>
+    <?php if($msg =$this->session->flashdata('msg')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
     <table class="table">
         <thead>
         <tr>

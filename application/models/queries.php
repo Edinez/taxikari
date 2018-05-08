@@ -6,5 +6,10 @@ class queries extends CI_Model{
             return $query->result();
         }
     }
+
+    public function addPost($data){
+        return $this->db->insert('zakaznici', $data);
+    }
+
 }
 ?>
