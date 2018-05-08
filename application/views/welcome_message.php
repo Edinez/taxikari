@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container">
     <h3> Tabulka zakaznici </h3>
     <a class=" btn btn-success" href="<?php echo site_url('home/create');?>">
-        Pridat zákazníka
+        Pridaj zákazníka
     </a>
     <table class="table">
         <thead>
