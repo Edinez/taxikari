@@ -22,5 +22,9 @@ class queries extends CI_Model{
         return $this->db->where('idZakaznici',$id)
                     ->update('zakaznici',$data);
     }
+
+    public function delete_zakaznik($id){
+        return  $this->db->delete('zakaznici',['idZakaznici'=>$id]);
+    }
 }
 ?>

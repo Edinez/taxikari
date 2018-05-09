@@ -86,4 +86,25 @@ class Home extends CI_Controller {
             $this->load->view('template/footer');
         }
     }
+
+    public function view_zakaznici($id){
+        $this->load->model('queries');
+        $post = $this->queries->getSingleZakaznici($id);
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('view_zakaznici',['post'=>$post]);
+        $this->load->view('template/footer');
+    }
+
+    public function delete_zakaznici($id){
+        $this->load->model('queries');
+        if ($this->queries->delete_Zakaznik($id)){
+            $this->session->set_flashdata('msg','Zákazník bol úspečne vymazaný');
+        }
+        else {
+            $this->session->set_flashdata('msg','Vymazanie zákazníka neprebehlo úspešne, niekde je chyba!');
+        }
+        return redirect('home');
+
+    }
 }
