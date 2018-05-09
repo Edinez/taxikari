@@ -38,9 +38,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                     <td>
-                        <?php echo anchor('home/view', 'View', ['class' => 'btn btn-primary']); ?>
-                        <?php echo anchor('home/update', 'Update', ['class' => 'btn btn-warning']); ?>
-                        <?php echo anchor('home/delete', 'Delete', ['class' => 'btn btn-danger']); ?>
+                        <?php echo anchor("home/view_zakaznici/{$posts->idZakaznici}", 'View', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/update_zakaznici/{$posts->idZakaznici}", 'Update', ['class' => 'btn btn-warning']); ?>
+                        <?php echo anchor("home/delete_zakaznici/{$posts->idZakaznici}", 'Delete', ['class' => 'btn btn-danger']); ?>
                     </td>
                 </tr>
 
