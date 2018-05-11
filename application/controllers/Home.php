@@ -196,4 +196,14 @@ class Home extends CI_Controller {
         return redirect('home');
 
     }
+
+    public function delete_vodici($id){
+        $this->load->model('vodici_queries');
+        if ($this->vodici_queries->delete_Vodic($id)) {
+            $this->session->set_flashdata('msg','Zákazník bol úspečne vymazaný');
+        }else {
+            $this->session->set_flashdata('msg','Vymazanie zákazníka neprebehlo úspešne, niekde je chyba!');
+        }
+        return redirect('home');
+    }
 }

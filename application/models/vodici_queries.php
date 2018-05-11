@@ -24,4 +24,8 @@ class vodici_queries extends CI_Model
     public function addVodic($data){
         return $this->db->insert('vodic', $data);
     }
+
+    public function delete_Vodic($id){
+        return  $this->db->delete('vodic',['idVodic'=>$id]);
+    }
 }
