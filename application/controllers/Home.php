@@ -57,10 +57,10 @@ class Home extends CI_Controller {
             unset($data['submit']);
             $this->load->model('queries');
             if($this->queries->addPost($data)){
-                $this->session->set_flashdata('msg','Dáta sa úspešne uložili');
+                $this->session->set_flashdata('msg_zakaznici','Dáta sa úspešne uložili');
             }
             else {
-                $this->session->set_flashdata('msg','Dáta sa neuložili úspešne, niekde je chyba!');
+                $this->session->set_flashdata('msg_zakaznici','Dáta sa neuložili úspešne, niekde je chyba!');
             }
             return redirect('home');
         }
@@ -85,10 +85,10 @@ class Home extends CI_Controller {
             unset($data['submit_vodic']);
             $this->load->model('vodici_queries');
             if($this->vodici_queries->addVodic($data)){
-                $this->session->set_flashdata('msg','Dáta sa úspešne uložili');
+                $this->session->set_flashdata('msg_vodici','Dáta sa úspešne uložili');
             }
             else {
-                $this->session->set_flashdata('msg','Dáta sa neuložili úspešne, niekde je chyba!');
+                $this->session->set_flashdata('msg_vodici','Dáta sa neuložili úspešne, niekde je chyba!');
             }
             return redirect('home');
         }
