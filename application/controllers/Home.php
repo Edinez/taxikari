@@ -139,6 +139,15 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function view_vodici($id){
+        $this->load->model('vodici_queries');
+        $post = $this->vodici_queries->getSingleVodici($id);
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('view_vodici',['post_vodic'=>$post]);
+        $this->load->view('template/footer');
+    }
+
     public function delete_zakaznici($id){
         $this->load->model('queries');
         if ($this->queries->delete_Zakaznik($id)){

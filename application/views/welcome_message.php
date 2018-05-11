@@ -84,7 +84,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $vodici_data->Tel_kontakt; ?></td>
                     <td><?php echo $vodici_data->Cena; ?></td>
 
-
                     <td>
                         <?php echo anchor("home/view_vodici/{$vodici_data->idVodic}", 'View', ['class' => 'btn btn-primary']); ?>
                         <?php echo anchor("home/update_vodici/{$vodici_data->idVodic}", 'Update', ['class' => 'btn btn-warning']); ?>
