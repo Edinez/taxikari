@@ -3,14 +3,14 @@
     } </style>
 <div class="container">
 
-    <?php echo form_open('Home/ulozit', ['class' => 'form-horizontal']); ?>
+    <?php echo form_open('Home/ulozit_vodic', ['class' => 'form-horizontal']); ?>
     <fieldset>
+        <legend>Vytvoriť nového vodiča</legend>
 
-        <legend>Vytvoriť nového zákazníka</legend>
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['name' => 'meno', 'placeholder' => 'Meno', 'class' => 'form-control']); ?>
+                <?php echo form_input(['name' => 'meno', 'placeholder' => 'Meno vodiča', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
                 <?php echo form_error('meno', '<div class="text-danger">', '</div>'); ?>
@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['name' => 'priezvisko', 'placeholder' => 'Priezvisko', 'class' => 'form-control']); ?>
+                <?php echo form_input(['name' => 'priezvisko', 'placeholder' => 'Priezvisko vodiča', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
                 <?php echo form_error('priezvisko', '<div class="text-danger">', '</div>'); ?>
@@ -30,7 +30,7 @@
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['name' => 'tel_kontakt', 'placeholder' => 'Tel_kontakt', 'class' => 'form-control']); ?>
+                <?php echo form_input(['name' => 'tel_kontakt', 'placeholder' => 'Tel_kontakt vodiča', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
                 <?php echo form_error('tel_kontakt','<div class="text-danger">','</div>'); ?>
@@ -40,20 +40,10 @@
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['name' => 'email', 'placeholder' => 'email', 'class' => 'form-control']); ?>
+                <?php echo form_input(['type'=>'number', 'step'=>'0.01', 'min'=>'0.1', 'name' => 'cena', 'placeholder' => 'Cena vodiča ', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
-                <?php echo form_error('email','<div class="text-danger">','</div>'); ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="inputEmail" class="cik-md-2 control-label"></label>
-            <div class="col-md-4">
-                <?php echo form_input(['name' => 'mesto', 'placeholder' => 'Mesto', 'class' => 'form-control']); ?>
-            </div>
-            <div class="col-md-4">
-                <?php echo form_error('mesto','<div class="text-danger">','</div>'); ?>
+                <?php echo form_error('cena','<div class="text-danger">','</div>'); ?>
             </div>
         </div>
 
@@ -63,7 +53,7 @@
                     Zrušiť
                 </a>
 
-                <?php echo form_submit(['name' => 'submit', 'value' => 'Submit', 'class' => 'btn btn-success']); ?>
+                <?php echo form_submit(['name' => 'submit_vodic', 'value' => 'Submit', 'class' => 'btn btn-success']); ?>
 
 
             </div>

@@ -1,14 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('vodici_queries');
+        $this->load->model('queries');
+
+    }
+
     public function index()
     {
-        $this->load->model('queries');
-        $posts = $this->queries->getZakaznici();
-
+        $data['posts'] = $this->queries->getZakaznici();
+        $data['vodici1'] = $this->vodici_queries->getVodici();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
-        $this->load->view('welcome_message',['posts'=>$posts]);
+        $this->load->view('welcome_message',$data);
         $this->load->view('template/footer');
     }
 
@@ -17,6 +25,13 @@ class Home extends CI_Controller {
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('home_vytvor');
+        $this->load->view('template/footer');
+    }
+
+    public function  createVodic() {
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('vytvor_vodic');
         $this->load->view('template/footer');
     }
 
@@ -42,6 +57,34 @@ class Home extends CI_Controller {
             unset($data['submit']);
             $this->load->model('queries');
             if($this->queries->addPost($data)){
+                $this->session->set_flashdata('msg','Dáta sa úspešne uložili');
+            }
+            else {
+                $this->session->set_flashdata('msg','Dáta sa neuložili úspešne, niekde je chyba!');
+            }
+            return redirect('home');
+        }
+        else
+        {
+            $this->load->view('template/header');
+            $this->load->view('template/navigation');
+            $this->load->view('home_vytvor');
+            $this->load->view('template/footer');
+        }
+    }
+
+    public function ulozit_vodic() {
+        $this->form_validation->set_rules('meno', 'Meno', 'required');
+        $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
+        $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');
+        $this->form_validation->set_rules('cena', 'Cena', 'required');
+
+        if ($this->form_validation->run())
+        {
+            $data = $this->input->post();
+            unset($data['submit_vodic']);
+            $this->load->model('vodici_queries');
+            if($this->vodici_queries->addVodic($data)){
                 $this->session->set_flashdata('msg','Dáta sa úspešne uložili');
             }
             else {

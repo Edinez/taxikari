@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <style >h3 {
         margin-top: 80px;
     } </style>
-<div class="container">
+<div class="container" id="zakaznici">
     <h3> Tabulka zakaznici </h3>
 
     <a class=" btn btn-success" href="<?php echo site_url('home/create');?>">
@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php if($msg =$this->session->flashdata('msg')): ?>
         <?php echo $msg; ?>
     <?php endif; ?>
-    <table class="table">
+    <table class="table" >
         <thead>
         <tr>
             <th scope="col">Meno</th>
@@ -41,6 +41,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php echo anchor("home/view_zakaznici/{$posts->idZakaznici}", 'View', ['class' => 'btn btn-primary']); ?>
                         <?php echo anchor("home/update_zakaznici/{$posts->idZakaznici}", 'Update', ['class' => 'btn btn-warning']); ?>
                         <?php echo anchor("home/delete_zakaznici/{$posts->idZakaznici}", 'Delete', ['class' => 'btn btn-danger']); ?>
+                    </td>
+                </tr>
+
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td> Nič sa nenašlo</td>
+            </tr>
+        <?php endif; ?>
+        </tbody>
+
+    </table>
+</div>
+
+
+<div class="container" id="vodici">
+    <h3> Tabulka vodiči </h3>
+
+    <a class=" btn btn-success" href="<?php echo site_url('home/createvodic');?>">
+        Pridaj vodiča
+    </a>
+    <?php if($msg =$this->session->flashdata('msg')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th scope="col">Meno</th>
+            <th scope="col">Priezvisko</th>
+            <th scope="col">Tel. kontakt</th>
+            <th scope="col">Cena</th>
+            <th scope="col">Mesto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php if (count($vodici1)): ?>
+            <?php foreach ($vodici1 as $vodici_data): ?>
+                <tr>
+                    <td><?php echo $vodici_data->Meno; ?></td>
+                    <td><?php echo $vodici_data->Priezvisko; ?></td>
+                    <td><?php echo $vodici_data->Tel_kontakt; ?></td>
+                    <td><?php echo $vodici_data->Cena; ?></td>
+
+
+                    <td>
+                        <?php echo anchor("home/view_vodici/{$vodici_data->idVodic}", 'View', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/update_vodici/{$vodici_data->idVodic}", 'Update', ['class' => 'btn btn-warning']); ?>
+                        <?php echo anchor("home/delete_vodici/{$vodici_data->idVodic}", 'Delete', ['class' => 'btn btn-danger']); ?>
                     </td>
                 </tr>
 
