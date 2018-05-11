@@ -44,6 +44,15 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function update_vodici($id){
+        $this->load->model('vodici_queries');
+        $post_vodici_update = $this->vodici_queries->getSingleVodici($id);
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('update_vodici',['post_vodici_update'=>$post_vodici_update]);
+        $this->load->view('template/footer');
+    }
+
     public function ulozit() {
         $this->form_validation->set_rules('meno', 'Meno', 'required');
         $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
@@ -101,7 +110,7 @@ class Home extends CI_Controller {
         }
     }
 
-    public function zmenit($id){
+    public function zmenit_zakaznika($id){
         $this->form_validation->set_rules('meno', 'Meno', 'required');
         $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
         $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');
@@ -118,6 +127,34 @@ class Home extends CI_Controller {
             }
             else {
                 $this->session->set_flashdata('msg','Dáta sa neaktualizovali úspešne, niekde je chyba!');
+            }
+            return redirect('home');
+        }
+        else
+        {
+            $this->load->view('template/header');
+            $this->load->view('template/navigation');
+            $this->load->view('home_vytvor');
+            $this->load->view('template/footer');
+        }
+    }
+
+    public function zmenit_vodic($id){
+        $this->form_validation->set_rules('meno', 'Meno', 'required');
+        $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
+        $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');
+        $this->form_validation->set_rules('cena', 'Cena', 'required');
+
+        if ($this->form_validation->run())
+        {
+            $data = $this->input->post();
+            unset($data['submit_update_vodic']);
+            $this->load->model('vodici_queries');
+            if($this->vodici_queries->updateVodic($data,$id)){
+                $this->session->set_flashdata('msg_vodici','Dáta sa úspešne aktualizovali');
+            }
+            else {
+                $this->session->set_flashdata('msg_vodici','Dáta sa neaktualizovali úspešne, niekde je chyba!');
             }
             return redirect('home');
         }
