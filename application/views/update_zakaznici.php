@@ -2,7 +2,7 @@
         margin-top: 90px;
     } </style>
 <div class="container">
-    <?php echo form_open("Home/zmenit/{$post->idZakaznici}", ['class' => 'form-horizontal']); ?>
+    <?php echo form_open("Home/zmenit_zakaznik/{$post->idZakaznici}", ['class' => 'form-horizontal']); ?>
     <fieldset>
         <legend>Upraviť zákazníka</legend>
         <div class="form-group">

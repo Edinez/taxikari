@@ -53,7 +53,7 @@
                     Zrušiť
                 </a>
 
-                <?php echo form_submit(['name' => 'submit_vodic', 'value' => 'Submit', 'class' => 'btn btn-success']); ?>
+                <?php echo form_submit(['name' => 'submit_vodic', 'value' => 'Potvrdiť vytvorenie vodiča', 'class' => 'btn btn-success']); ?>
 
 
             </div>

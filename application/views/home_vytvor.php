@@ -3,7 +3,7 @@
     } </style>
 <div class="container">
 
-    <?php echo form_open('Home/ulozit', ['class' => 'form-horizontal']); ?>
+    <?php echo form_open('Home/ulozit_zakaznik', ['class' => 'form-horizontal']); ?>
     <fieldset>
 
         <legend>Vytvoriť nového zákazníka</legend>
@@ -63,7 +63,7 @@
                     Zrušiť
                 </a>
 
-                <?php echo form_submit(['name' => 'submit', 'value' => 'Submit', 'class' => 'btn btn-success']); ?>
+                <?php echo form_submit(['name' => 'submit', 'value' => 'Potvrdiť vytvorenie objednavky', 'class' => 'btn btn-success']); ?>
 
 
             </div>

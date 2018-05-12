@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container" id="zakaznici">
     <h3> Tabulka zakaznici </h3>
 
-    <a class=" btn btn-success" href="<?php echo site_url('home/create');?>">
+    <a class=" btn btn-success" href="<?php echo site_url('home/create_zakaznik');?>">
         Pridaj zákazníka
     </a>
     <?php if($msg =$this->session->flashdata('msg_zakaznici')): ?>
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th scope="col">Priezvisko</th>
             <th scope="col">Tel. kontakt</th>
             <th scope="col">Cena</th>
-            <th scope="col">Mesto</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h3> Tabulka vozidlo </h3>
 
     <a class=" btn btn-success" href="<?php echo site_url('home/createvozidlo');?>">
-        Pridaj vodiča
+        Pridaj vozidlo
     </a>
     <?php if($msg =$this->session->flashdata('msg_vozidlo')): ?>
         <?php echo $msg; ?>
@@ -117,6 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th scope="col">Značka</th>
             <th scope="col">Model</th>
             <th scope="col">Rok</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>

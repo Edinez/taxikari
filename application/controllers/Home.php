@@ -23,7 +23,7 @@ class Home extends CI_Controller {
     }
 
 
-    public function  create() {
+    public function  create_zakaznik() {
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('home_vytvor');
@@ -34,6 +34,13 @@ class Home extends CI_Controller {
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('vytvor_vodic');
+        $this->load->view('template/footer');
+    }
+
+    public function  createVozidlo() {
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('vytvor_vozidlo');
         $this->load->view('template/footer');
     }
 
@@ -55,7 +62,7 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
-    public function ulozit() {
+    public function ulozit_zakaznik() {
         $this->form_validation->set_rules('meno', 'Meno', 'required');
         $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
         $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');
@@ -107,12 +114,39 @@ class Home extends CI_Controller {
         {
             $this->load->view('template/header');
             $this->load->view('template/navigation');
-            $this->load->view('home_vytvor');
+            $this->load->view('vytvor_vodic');
             $this->load->view('template/footer');
         }
     }
 
-    public function zmenit_zakaznika($id){
+    public function ulozit_vozidlo() {
+        $this->form_validation->set_rules('znacka', 'Znacka', 'required');
+        $this->form_validation->set_rules('model', 'Model', 'required');
+        $this->form_validation->set_rules('rok', 'Rok', 'required');
+
+        if ($this->form_validation->run())
+        {
+            $data = $this->input->post();
+            unset($data['submit_vozidlo']);
+            $this->load->model('vozidlo_queries');
+            if($this->vozidlo_queries->addVozidlo($data)){
+                $this->session->set_flashdata('msg_vozidlo','Dáta sa úspešne uložili');
+            }
+            else {
+                $this->session->set_flashdata('msg_vozidlo','Dáta sa neuložili úspešne, niekde je chyba!');
+            }
+            return redirect('home');
+        }
+        else
+        {
+            $this->load->view('template/header');
+            $this->load->view('template/navigation');
+            $this->load->view('vytvor_vozidlo');
+            $this->load->view('template/footer');
+        }
+    }
+
+    public function zmenit_zakaznik($id){
         $this->form_validation->set_rules('meno', 'Meno', 'required');
         $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
         $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');

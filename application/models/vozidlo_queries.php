@@ -15,4 +15,7 @@ class vozidlo_queries extends CI_Model
         }
     }
 
+    public function addVozidlo($data){
+        return $this->db->insert('vozidlo', $data);
+    }
 }
