@@ -15,6 +15,13 @@ class vozidlo_queries extends CI_Model
         }
     }
 
+    public function getSingleVozidlo($id){
+        $query = $this->db->get_where('vozidlo', array('idVozidlo' => $id));
+        if($query->num_rows()>0){
+            return $query->row();
+        }
+    }
+
     public function addVozidlo($data){
         return $this->db->insert('vozidlo', $data);
     }

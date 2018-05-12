@@ -221,6 +221,15 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function view_vozidlo($id){
+        $this->load->model('vozidlo_queries');
+        $post_vozidlo = $this->vozidlo_queries->getSingleVozidlo($id);
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('view_vozidlo',['post_vozidlo'=>$post_vozidlo]);
+        $this->load->view('template/footer');
+    }
+
     public function delete_zakaznici($id){
         $this->load->model('queries');
         if ($this->queries->delete_Zakaznik($id)){
