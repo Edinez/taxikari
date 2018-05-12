@@ -7,6 +7,7 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->model('vodici_queries');
         $this->load->model('queries');
+        $this->load->model('vozidlo_queries');
 
     }
 
@@ -14,6 +15,7 @@ class Home extends CI_Controller {
     {
         $data['posts'] = $this->queries->getZakaznici();
         $data['vodici1'] = $this->vodici_queries->getVodici();
+        $data['vozidlo1'] = $this->vozidlo_queries->getVozidlo();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('welcome_message',$data);

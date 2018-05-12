@@ -102,5 +102,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </table>
 </div>
 
+<div class="container" id="vozidlo">
+    <h3> Tabulka vozidlo </h3>
+
+    <a class=" btn btn-success" href="<?php echo site_url('home/createvozidlo');?>">
+        Pridaj vodiča
+    </a>
+    <?php if($msg =$this->session->flashdata('msg_vozidlo')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th scope="col">Značka</th>
+            <th scope="col">Model</th>
+            <th scope="col">Rok</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php if (count($vozidlo1)): ?>
+            <?php foreach ($vozidlo1 as $vozidlo_data): ?>
+                <tr>
+                    <td><?php echo $vozidlo_data->Znacka; ?></td>
+                    <td><?php echo $vozidlo_data->Model; ?></td>
+                    <td><?php echo $vozidlo_data->Rok; ?></td>
+
+                    <td>
+                        <?php echo anchor("home/view_vozidlo/{$vozidlo_data->idVozidlo}", 'View', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/update_vozidlo/{$vozidlo_data->idVozidlo}", 'Update', ['class' => 'btn btn-warning']); ?>
+                        <?php echo anchor("home/delete_vozidlo/{$vozidlo_data->idVozidlo}", 'Delete', ['class' => 'btn btn-danger']); ?>
+                    </td>
+                </tr>
+
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td> Nič sa nenašlo</td>
+            </tr>
+        <?php endif; ?>
+        </tbody>
+
+    </table>
+</div>
+
 
 

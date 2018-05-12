@@ -16,7 +16,7 @@
             <a class="nav-link" href="#vodici">Vodiči</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Vozidlá</a>
+            <a class="nav-link" href="#vozidlo">Vozidlá</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#zakaznici">Zákazníci</a>
