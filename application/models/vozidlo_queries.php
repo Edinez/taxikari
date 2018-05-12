@@ -25,4 +25,8 @@ class vozidlo_queries extends CI_Model
     public function addVozidlo($data){
         return $this->db->insert('vozidlo', $data);
     }
+
+    public function delete_vozidlo($id){
+        return  $this->db->delete('vozidlo',['idVozidlo'=>$id]);
+    }
 }

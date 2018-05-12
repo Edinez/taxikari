@@ -245,9 +245,19 @@ class Home extends CI_Controller {
     public function delete_vodici($id){
         $this->load->model('vodici_queries');
         if ($this->vodici_queries->delete_Vodic($id)) {
-            $this->session->set_flashdata('msg','Zákazník bol úspečne vymazaný');
+            $this->session->set_flashdata('msg','Vodič bol úspečne odstránený');
         }else {
-            $this->session->set_flashdata('msg','Vymazanie zákazníka neprebehlo úspešne, niekde je chyba!');
+            $this->session->set_flashdata('msg','Vymazanie vodiča neprebehlo úspešne, niekde je chyba!');
+        }
+        return redirect('home');
+    }
+
+    public function delete_vozidlo($id){
+        $this->load->model('vozidlo_queries');
+        if ($this->vozidlo_queries->delete_Vozidlo($id)) {
+            $this->session->set_flashdata('msg_vozidlo','Auto bolo úspečne vymazané');
+        }else {
+            $this->session->set_flashdata('msg_vozidlo','Vymazanie vozidla z autoparku neprebehlo úspešne, niekde je chyba!');
         }
         return redirect('home');
     }

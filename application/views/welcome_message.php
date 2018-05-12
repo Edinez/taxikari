@@ -130,7 +130,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <td>
                         <?php echo anchor("home/view_vozidlo/{$vozidlo_data->idVozidlo}", 'View', ['class' => 'btn btn-primary']); ?>
-                        <?php echo anchor("home/update_vozidlo/{$vozidlo_data->idVozidlo}", 'Update', ['class' => 'btn btn-warning']); ?>
                         <?php echo anchor("home/delete_vozidlo/{$vozidlo_data->idVozidlo}", 'Delete', ['class' => 'btn btn-danger']); ?>
                     </td>
                 </tr>
