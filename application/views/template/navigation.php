@@ -10,7 +10,7 @@
             <a class="nav-link" href="#">Objednavka</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Smeny</a>
+            <a class="nav-link" href="#smeny">Smeny</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#vodici">Vodiči</a>

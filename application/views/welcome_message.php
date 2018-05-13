@@ -38,9 +38,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                     <td>
-                        <?php echo anchor("home/view_zakaznici/{$posts->idZakaznici}", 'View', ['class' => 'btn btn-primary']); ?>
-                        <?php echo anchor("home/update_zakaznici/{$posts->idZakaznici}", 'Update', ['class' => 'btn btn-warning']); ?>
-                        <?php echo anchor("home/delete_zakaznici/{$posts->idZakaznici}", 'Delete', ['class' => 'btn btn-danger']); ?>
+                        <?php echo anchor("home/view_zakaznici/{$posts->idZakaznici}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/update_zakaznici/{$posts->idZakaznici}", 'Upraviť', ['class' => 'btn btn-warning']); ?>
+                        <?php echo anchor("home/delete_zakaznici/{$posts->idZakaznici}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
                     </td>
                 </tr>
 
@@ -85,9 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $vodici_data->Cena; ?></td>
 
                     <td>
-                        <?php echo anchor("home/view_vodici/{$vodici_data->idVodic}", 'View', ['class' => 'btn btn-primary']); ?>
-                        <?php echo anchor("home/update_vodici/{$vodici_data->idVodic}", 'Update', ['class' => 'btn btn-warning']); ?>
-                        <?php echo anchor("home/delete_vodici/{$vodici_data->idVodic}", 'Delete', ['class' => 'btn btn-danger']); ?>
+                        <?php echo anchor("home/view_vodici/{$vodici_data->idVodic}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/update_vodici/{$vodici_data->idVodic}", 'Upraviť', ['class' => 'btn btn-warning']); ?>
+                        <?php echo anchor("home/delete_vodici/{$vodici_data->idVodic}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
                     </td>
                 </tr>
 
@@ -98,7 +98,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tr>
         <?php endif; ?>
         </tbody>
-
     </table>
 </div>
 
@@ -127,13 +126,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $vozidlo_data->Znacka; ?></td>
                     <td><?php echo $vozidlo_data->Model; ?></td>
                     <td><?php echo $vozidlo_data->Rok; ?></td>
-
                     <td>
-                        <?php echo anchor("home/view_vozidlo/{$vozidlo_data->idVozidlo}", 'View', ['class' => 'btn btn-primary']); ?>
-                        <?php echo anchor("home/delete_vozidlo/{$vozidlo_data->idVozidlo}", 'Delete', ['class' => 'btn btn-danger']); ?>
+                        <?php echo anchor("home/view_vozidlo/{$vozidlo_data->idVozidlo}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/delete_vozidlo/{$vozidlo_data->idVozidlo}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
                     </td>
                 </tr>
-
             <?php endforeach; ?>
         <?php else: ?>
             <tr>
@@ -141,7 +138,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tr>
         <?php endif; ?>
         </tbody>
+    </table>
+</div>
 
+<div class="container" id="smeny">
+    <h3> Tabulka pracovnych smien </h3>
+
+    <a class=" btn btn-success" href="<?php echo site_url('home/createsmena');?>">
+        Pridaj smenu
+    </a>
+    <?php if($msg =$this->session->flashdata('msg_smeny')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th scope="col">Dátum od</th>
+            <th scope="col">Dátum do</th>
+            <th scope="col">Čas od</th>
+            <th scope="col">Čas do</th>
+            <th scope="col">Vodič</th>
+            <th scope="col">Vozidlo na smene</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($smena2 as $smena_data): ?>
+                <tr>
+                    <td><?php echo $smena_data['Datum_Od']; ?></td>
+                    <td><?php echo $smena_data['Datum_Do']; ?></td>
+                    <td><?php echo $smena_data['Cas_Od']; ?></td>
+                    <td><?php echo $smena_data['Cas_Do']; ?></td>
+                    <td><?php echo $smena_data['vodic']; ?></td>
+                    <td><?php echo $smena_data['znacka']; ?></td>
+                    <td>
+                        <?php echo anchor("home/view_smena/{$smena_data['idSmeny']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/update_smena/{$smena_data['idSmeny']}", 'Upraviť', ['class' => 'btn btn-warning']); ?>
+                        <?php echo anchor("home/delete_smena/{$smena_data['idSmeny']}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 </div>
 

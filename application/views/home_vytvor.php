@@ -63,7 +63,7 @@
                     Zrušiť
                 </a>
 
-                <?php echo form_submit(['name' => 'submit', 'value' => 'Potvrdiť vytvorenie objednavky', 'class' => 'btn btn-success']); ?>
+                <?php echo form_submit(['name' => 'submit', 'value' => 'Potvrdiť vytvorenie zákazníka', 'class' => 'btn btn-success']); ?>
 
 
             </div>
