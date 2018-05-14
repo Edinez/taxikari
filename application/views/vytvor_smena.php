@@ -12,19 +12,19 @@
                 <div class="row">
                     <div class="col-md-4">
 
-                            <div class="form-group ">
-                                <label class="control-label " for="date">
-                                    Začiatok smeny dátum
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar">
-                                        </i>
-                                    </div>
-                                    <?php echo form_input(['name' => 'Datum_Od', 'id'=>'date', 'placeholder' => 'Dátum kedy smena začína', 'class' => 'form-control']); ?>
-
+                        <div class="form-group ">
+                            <label class="control-label " for="date">
+                                Začiatok smeny dátum
+                            </label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar">
+                                    </i>
                                 </div>
+                                <?php echo form_input(['name' => 'Datum_Od', 'id' => 'date', 'placeholder' => 'Dátum kedy smena začína', 'class' => 'form-control']); ?>
+
                             </div>
+                        </div>
 
                     </div>
                 </div>
@@ -35,19 +35,19 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
-                            <div class="form-group ">
-                                <label class="control-label " for="date">
-                                    Koniec smeny dátum
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar">
-                                        </i>
-                                    </div>
-                                    <?php echo form_input(['name' => 'Datum_Do', 'id'=>'date', 'placeholder' => 'Dátum dokedy smena končí', 'class' => 'form-control']); ?>
-
+                        <div class="form-group ">
+                            <label class="control-label " for="date">
+                                Koniec smeny dátum
+                            </label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar">
+                                    </i>
                                 </div>
+                                <?php echo form_input(['name' => 'Datum_Do', 'id' => 'date', 'placeholder' => 'Dátum dokedy smena končí', 'class' => 'form-control']); ?>
+
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,9 +59,10 @@
                 <?php echo form_input(['name' => 'Cas_Od', 'placeholder' => 'O koľkej sa vodičovi smena začína', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
-                <?php echo form_error('Cas_Od','<div class="text-danger">','</div>'); ?>
+                <?php echo form_error('Cas_Od', '<div class="text-danger">', '</div>'); ?>
             </div>
         </div>
+
 
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
@@ -69,7 +70,7 @@
                 <?php echo form_input(['name' => 'Cas_Do', 'placeholder' => 'O koľkej sa vodičovi smena končí', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
-                <?php echo form_error('Cas_Do','<div class="text-danger">','</div>'); ?>
+                <?php echo form_error('Cas_Do', '<div class="text-danger">', '</div>'); ?>
             </div>
         </div>
 
@@ -77,10 +78,10 @@
             <label class="col-md-4 control-label">Vodiči</label>
             <div class="col-md-4 selectContainer">
                 <select class="form-control" name="idVodic">
-                    <?php foreach($vodicicombo as $vodici):
-                        echo "<option value='" .$vodici['idVodic']."'>".$vodici['Meno']."</option>";
+                    <?php foreach ($vodicicombo as $vodici):
+                        echo "<option value='" . $vodici['idVodic'] . "'>" . $vodici['Meno'] . "</option>";
 
-                    endforeach;?>
+                    endforeach; ?>
                 </select>
             </div>
         </div>
@@ -89,10 +90,9 @@
             <label class="col-md-4 control-label">Vodiči</label>
             <div class="col-md-4 selectContainer">
                 <select class="form-control" name="idVozidlo">
-                    <?php foreach($vozidlocombo as $vozidlo):
-                        echo "<option value='" .$vozidlo['idVozidlo']."'>".$vozidlo['Znacka']."</option>";
-
-                    endforeach;?>
+                    <?php foreach ($vozidlocombo as $vozidlo):
+                        echo "<option value='" . $vozidlo['idVozidlo'] . "'>" . $vozidlo['Znacka'] . "</option>";
+                    endforeach; ?>
                 </select>
             </div>
         </div>

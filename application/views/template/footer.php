@@ -37,7 +37,6 @@
             autoclose: true,
         })
     })
-
 </script>
 
 <script type="text/javascript">

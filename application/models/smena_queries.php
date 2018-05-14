@@ -47,7 +47,7 @@ class smena_queries extends CI_Model
     }
 
     public function getSingleSmenaWhere($id){
-        $this->db->select('smeny.idSmeny , smeny.Datum_Od , smeny.Datum_Do , smeny.Cas_Od , smeny.Cas_Do , vodic.Meno as vodic , vozidlo.Znacka as znacka ');
+        $this->db->select('smeny.idSmeny , smeny.Datum_Od , smeny.Datum_Do , smeny.Cas_Od , smeny.Cas_Do , vodic.Meno as vodicMeno,vodic.Priezvisko as vodicPriezvisko , vozidlo.Znacka as znacka, vozidlo.Model as model, vozidlo.Rok as rocnik ');
         $this->db->from('smeny');
         $this->db->join('vozidlo', 'smeny.idVozidlo = vozidlo.idVozidlo');
         $this->db->join('vodic','smeny.idVodic = vodic.idVodic');
