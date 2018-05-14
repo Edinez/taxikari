@@ -1,5 +1,5 @@
 <style>.container {
-        margin-top: 200px;
+        margin-top: 100px;
     } </style>
 <div class="container">
 
@@ -40,7 +40,7 @@
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['name' => 'Konecna_suma', 'placeholder' => 'Konečná suma  € €', 'class' => 'form-control']); ?>
+                <?php echo form_input(['name' => 'Konecna_suma', 'placeholder' => 'Konečná suma  €', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
                 <?php echo form_error('Konecna_suma', '<div class="text-danger">', '</div>'); ?>

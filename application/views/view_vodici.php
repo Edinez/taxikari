@@ -9,8 +9,8 @@
     <p><?php echo $post_vodic->Priezvisko; ?></p>
     <span style="font-weight:bold">Telefónny kontakt</span>
     <p><?php echo $post_vodic->Tel_kontakt; ?></p>
-    <span style="font-weight:bold">Cena</span>
-    <p><?php echo $post_vodic->Cena." €/km"; ?></p>
+    <span style="font-weight:bold">Vek</span>
+    <p><?php echo $post_vodic->Vek." rokov"; ?></p>
     <a class="btn btn-primary" href=" <?php echo base_url() ?>">
         Späť
     </a>

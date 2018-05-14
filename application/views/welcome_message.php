@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td><?php echo $objednavka_data['datum']; ?></td>
                 <td><?php echo $objednavka_data['cas']; ?></td>
                 <td><?php echo $objednavka_data['smeny']; ?></td>
-                <td><?php echo $objednavka_data['priezvisko']; ?></td>
+                <td><?php echo $objednavka_data['meno']." ".$objednavka_data['priezvisko']; ?></td>
                 <td>
                     <?php echo anchor("home/view_objednavka/{$objednavka_data['idObjednavka']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
                 </td>
@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th scope="col">Meno</th>
             <th scope="col">Priezvisko</th>
             <th scope="col">Tel. kontakt</th>
-            <th scope="col">Cena</th>
+            <th scope="col">Vek</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -168,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $vodici_data->Meno; ?></td>
                     <td><?php echo $vodici_data->Priezvisko; ?></td>
                     <td><?php echo $vodici_data->Tel_kontakt; ?></td>
-                    <td><?php echo $vodici_data->Cena; ?></td>
+                    <td><?php echo $vodici_data->Vek." rokov"; ?></td>
 
                     <td>
                         <?php echo anchor("home/view_vodici/{$vodici_data->idVodic}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>

@@ -38,10 +38,10 @@
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['name' => 'cena', 'placeholder' => 'Cena vodiča', 'class' => 'form-control','value'=>set_value('email',$post_vodici_update->Cena)]); ?>
+                <?php echo form_input(['name' => 'vek', 'placeholder' => 'Vek vodiča', 'class' => 'form-control','value'=>set_value('email',$post_vodici_update->Vek)]); ?>
             </div>
             <div class="col-md-4">
-                <?php echo form_error('cena','<div class="text-danger">','</div>'); ?>
+                <?php echo form_error('vek','<div class="text-danger">','</div>'); ?>
             </div>
         </div>
 

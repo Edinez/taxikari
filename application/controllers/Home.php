@@ -116,7 +116,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('meno', 'Meno', 'required');
         $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
         $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');
-        $this->form_validation->set_rules('cena', 'Cena', 'required');
+        $this->form_validation->set_rules('vek', 'Vek', 'required');
 
         if ($this->form_validation->run())
         {
@@ -268,7 +268,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('meno', 'Meno', 'required');
         $this->form_validation->set_rules('priezvisko', 'Priezvisko', 'required');
         $this->form_validation->set_rules('tel_kontakt', 'Tel_kontakt', 'required');
-        $this->form_validation->set_rules('cena', 'Cena', 'required');
+        $this->form_validation->set_rules('vek', 'Vek', 'required');
 
         if ($this->form_validation->run())
         {

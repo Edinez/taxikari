@@ -40,10 +40,10 @@
         <div class="form-group">
             <label for="inputEmail" class="cik-md-2 control-label"></label>
             <div class="col-md-4">
-                <?php echo form_input(['type'=>'number', 'step'=>'0.01', 'min'=>'0.1', 'name' => 'cena', 'placeholder' => 'Cena vodiča ', 'class' => 'form-control']); ?>
+                <?php echo form_input(['type'=>'number','min'=>'18', 'name' => 'vek', 'placeholder' => 'Vek vodiča ', 'class' => 'form-control']); ?>
             </div>
             <div class="col-md-4">
-                <?php echo form_error('cena','<div class="text-danger">','</div>'); ?>
+                <?php echo form_error('vek','<div class="text-danger">','</div>'); ?>
             </div>
         </div>
 

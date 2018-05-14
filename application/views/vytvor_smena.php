@@ -102,7 +102,7 @@
                 <span style="font-weight:bold" >Priradiť vodiča</span>
                 <select class="form-control" name="idVodic">
                     <?php foreach ($vodicicombo as $vodici):
-                        echo "<option value='" . $vodici['idVodic'] . "'>" . $vodici['Meno'] . "</option>";
+                        echo "<option value='" . $vodici['idVodic'] . "'>" . $vodici['Meno']." ".$vodici['Priezvisko']. "</option>";
 
                     endforeach; ?>
                 </select>
