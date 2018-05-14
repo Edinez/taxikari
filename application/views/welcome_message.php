@@ -182,5 +182,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </table>
 </div>
 
+<div class="container" id="objednavka">
+    <h3> Tabulka objednávok  </h3>
+
+    <a class=" btn btn-success" href="<?php echo site_url('home/createobjednavka');?>">
+        Vytvor objednávku
+    </a>
+    <?php if($msg =$this->session->flashdata('msg_objednavka')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th scope="col">Začiatočná lokácia</th>
+            <th scope="col">Konečná lokácia</th>
+            <th scope="col">Vzdialenosť</th>
+            <th scope="col">Konečná suma</th>
+            <th scope="col">Dátum</th>
+            <th scope="col">Číslo smeny</th>
+            <th scope="col">Meno zákazníka</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($objednavka_post as $objednavka_data): ?>
+            <tr>
+                <td><?php echo $objednavka_data['zaciatok']; ?></td>
+                <td><?php echo $objednavka_data['ciel']; ?></td>
+                <td><?php echo $objednavka_data['vzdialenost']; ?></td>
+                <td><?php echo $objednavka_data['platit']." €"; ?></td>
+                <td><?php echo $objednavka_data['datum']; ?></td>
+                <td><?php echo $objednavka_data['smeny']; ?></td>
+                <td><?php echo $objednavka_data['priezvisko']; ?></td>
+                <td>
+                    <?php echo anchor("home/view_objednavka/{$objednavka_data['idObjednavka']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                    <?php echo anchor("home/delete_objednavka/{$objednavka_data['idObjednavka']}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
 
 

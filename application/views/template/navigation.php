@@ -7,7 +7,7 @@
     <a class="navbar-brand" href="#">TAXISLUŽBA Raketa</a>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">Objednavka</a>
+            <a class="nav-link" href="#objednavka">Objednavka</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#smeny">Smeny</a>

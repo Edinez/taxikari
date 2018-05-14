@@ -9,6 +9,7 @@ class Home extends CI_Controller {
         $this->load->model('queries');
         $this->load->model('vozidlo_queries');
         $this->load->model('smena_queries');
+        $this->load->model('objednavka_queries');
     }
 
     public function index()
@@ -17,6 +18,7 @@ class Home extends CI_Controller {
         $data['vodici1'] = $this->vodici_queries->getVodici();
         $data['vozidlo1'] = $this->vozidlo_queries->getVozidlo();
         $data['smena2'] = $this->smena_queries->getSmenyVsetky2();
+        $data['objednavka_post'] = $this->objednavka_queries->getObjednavky();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('welcome_message',$data);
