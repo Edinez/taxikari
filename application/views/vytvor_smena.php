@@ -11,7 +11,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
-
                         <div class="form-group ">
                             <label class="control-label " for="date">
                                 Začiatok smeny dátum
@@ -54,7 +53,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 ">
-                        <form method="post">
                             <div class="form-group ">
                                 <label class="control-label ">
                                     Čas začiatku smeny
@@ -67,7 +65,6 @@
                                     <?php echo form_input(['name' => 'Cas_Od', 'placeholder' => 'O koľkej sa vodičovi smena začína', 'class' => 'form-control']); ?>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -77,7 +74,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 ">
-                        <form method="post">
                             <div class="form-group ">
                                 <label class="control-label ">
                                     Čas začiatku smeny
@@ -90,7 +86,6 @@
                                     <?php echo form_input(['name' => 'Cas_Do', 'placeholder' => 'O koľkej sa vodičovi smena končí', 'class' => 'form-control']); ?>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>

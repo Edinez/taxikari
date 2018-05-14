@@ -168,7 +168,7 @@ class Home extends CI_Controller {
     }
 
     public function ulozit_smena(){
-       /*   $this->form_validation->set_rules('Datum_Od', 'Datum_Od', 'required');
+          $this->form_validation->set_rules('Datum_Od', 'Datum_Od', 'required');
           $this->form_validation->set_rules('Datum_Do', 'Datum_Do', 'required');
           $this->form_validation->set_rules('Cas_Od', 'Cas_Od', 'required');
           $this->form_validation->set_rules('Cas_Do', 'Cas_Do', 'required');
@@ -177,7 +177,7 @@ class Home extends CI_Controller {
 
           if ($this->form_validation->run())
 
-        { */
+        {
             $data = $this->input->post();
             unset($data['submit_smena']);
             $this->load->model('smena_queries');
@@ -187,7 +187,7 @@ class Home extends CI_Controller {
                 $this->session->set_flashdata('msg_smena', 'Smena nebola úspešne vytvorená, niekde je chyba!');
             }
             return redirect('home');
-         /*    }
+            }
              else
              {
                  $data['vodicicombo'] = $this->smena_queries->dajMiVodicov();
@@ -197,7 +197,7 @@ class Home extends CI_Controller {
                  $this->load->view('vytvor_smena',$data);
                  $this->load->view('template/footer');
              }
-*/
+
         }
 
     public function ulozit_objednavka(){

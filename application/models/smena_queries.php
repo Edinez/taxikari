@@ -38,6 +38,7 @@ class smena_queries extends CI_Model
         $this->db->from('smeny');
         $this->db->join('vozidlo', 'smeny.idVozidlo = vozidlo.idVozidlo');
         $this->db->join('vodic','smeny.idVodic = vodic.idVodic');
+        $this->db->order_by('smeny.idSmeny ASC');
         $queri= $this->db->get();
         return $queri->result_array();
     }
