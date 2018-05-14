@@ -41,9 +41,26 @@ class smena_queries extends CI_Model
         $queri= $this->db->get();
         return $queri->result_array();
     }
+
     public function addSmena($data){
         return $this->db->insert('smeny', $data);
     }
 
+    public function getSingleSmenaWhere($id){
+        $this->db->select('smeny.idSmeny , smeny.Datum_Od , smeny.Datum_Do , smeny.Cas_Od , smeny.Cas_Do , vodic.Meno as vodic , vozidlo.Znacka as znacka ');
+        $this->db->from('smeny');
+        $this->db->join('vozidlo', 'smeny.idVozidlo = vozidlo.idVozidlo');
+        $this->db->join('vodic','smeny.idVodic = vodic.idVodic');
+        $this->db->where('smeny.idSmeny', $id);
+        $queri= $this->db->get();
+        return $queri->result_array();
+    }
+
+    public function getSingleSmena($id){
+        $query = $this->db->get_where('smeny', array('idSmeny' => $id));
+        if($query->num_rows()>0){
+            return $query->row();
+        }
+    }
 
 }

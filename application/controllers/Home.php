@@ -274,6 +274,15 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function view_smena($id){
+        $this->load->model('smena_queries');
+        $post_smena = $this->smena_queries->getSingleSmenaWhere($id);
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('view_smena',['post_smena'=>$post_smena]);
+        $this->load->view('template/footer');
+    }
+
     public function delete_zakaznici($id){
         $this->load->model('queries');
         if ($this->queries->delete_Zakaznik($id)){
