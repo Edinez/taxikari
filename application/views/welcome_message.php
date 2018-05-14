@@ -19,8 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <table class="table" >
         <thead>
         <tr>
-            <th scope="col">Začiatočná lokácia</th>
-            <th scope="col">Konečná lokácia</th>
+            <th scope="col">Začiatok jazdy</th>
+            <th scope="col">Cieľ jazdy</th>
             <th scope="col">Vzdialenosť</th>
             <th scope="col">Konečná suma</th>
             <th scope="col">Dátum</th>
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <tr>
                 <td><?php echo $objednavka_data['zaciatok']; ?></td>
                 <td><?php echo $objednavka_data['ciel']; ?></td>
-                <td><?php echo $objednavka_data['vzdialenost']; ?></td>
+                <td><?php echo $objednavka_data['vzdialenost']." km"; ?></td>
                 <td><?php echo $objednavka_data['platit']." €"; ?></td>
                 <td><?php echo $objednavka_data['datum']; ?></td>
                 <td><?php echo $objednavka_data['cas']; ?></td>
