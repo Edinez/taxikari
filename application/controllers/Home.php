@@ -328,6 +328,15 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function view_objednavka($id){
+        $this->load->model('objednavka_queries');
+        $post_objednavka = $this->objednavka_queries->getSingleObjednavkaWhere($id);
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('view_objednavka',['post_objednavka'=>$post_objednavka]);
+        $this->load->view('template/footer');
+    }
+
     public function delete_zakaznici($id){
         $this->load->model('queries');
         if ($this->queries->delete_Zakaznik($id)){
