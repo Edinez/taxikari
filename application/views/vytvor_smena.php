@@ -45,7 +45,6 @@
                                     </i>
                                 </div>
                                 <?php echo form_input(['name' => 'Datum_Do', 'id' => 'date', 'placeholder' => 'Dátum dokedy smena končí', 'class' => 'form-control']); ?>
-
                             </div>
                         </div>
                     </div>
@@ -75,8 +74,8 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label">Vodiči</label>
             <div class="col-md-4 selectContainer">
+                <span style="font-weight:bold" >Priradiť vodiča</span>
                 <select class="form-control" name="idVodic">
                     <?php foreach ($vodicicombo as $vodici):
                         echo "<option value='" . $vodici['idVodic'] . "'>" . $vodici['Meno'] . "</option>";
@@ -87,8 +86,8 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label">Vodiči</label>
             <div class="col-md-4 selectContainer">
+                <span style="font-weight:bold ">Pridadiť vozidlo</span>
                 <select class="form-control" name="idVozidlo">
                     <?php foreach ($vozidlocombo as $vozidlo):
                         echo "<option value='" . $vozidlo['idVozidlo'] . "'>" . $vozidlo['Znacka'] . "</option>";

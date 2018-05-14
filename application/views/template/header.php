@@ -18,6 +18,12 @@
     <!-- Inline CSS based on choices in "Settings" tab -->
     <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
+    <!-- sem idem includnut clockpicker -->
+    <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/github.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>dist/bootstrap-clockpicker.min.css" rel="stylesheet">
+
+
     <style type="text/css">
 
         ::selection { background-color: #E13300; color: white; }

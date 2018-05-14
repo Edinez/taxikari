@@ -156,8 +156,7 @@ class Home extends CI_Controller {
         }
     }
 
-    public function ulozit_smena()
-    {
+    public function ulozit_smena(){
           $this->form_validation->set_rules('Datum_Od', 'Datum_Od', 'required');
           $this->form_validation->set_rules('Datum_Do', 'Datum_Do', 'required');
           $this->form_validation->set_rules('Cas_Od', 'Cas_Od', 'required');
