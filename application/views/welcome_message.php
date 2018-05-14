@@ -199,6 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th scope="col">Vzdialenosť</th>
             <th scope="col">Konečná suma</th>
             <th scope="col">Dátum</th>
+            <th scope="col">Čas</th>
             <th scope="col">Číslo smeny</th>
             <th scope="col">Meno zákazníka</th>
             <th scope="col"></th>
@@ -212,11 +213,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td><?php echo $objednavka_data['vzdialenost']; ?></td>
                 <td><?php echo $objednavka_data['platit']." €"; ?></td>
                 <td><?php echo $objednavka_data['datum']; ?></td>
+                <td><?php echo $objednavka_data['cas']; ?></td>
                 <td><?php echo $objednavka_data['smeny']; ?></td>
                 <td><?php echo $objednavka_data['priezvisko']; ?></td>
                 <td>
                     <?php echo anchor("home/view_objednavka/{$objednavka_data['idObjednavka']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
-                    <?php echo anchor("home/delete_objednavka/{$objednavka_data['idObjednavka']}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
                 </td>
             </tr>
         <?php endforeach; ?>

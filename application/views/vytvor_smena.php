@@ -22,10 +22,8 @@
                                     </i>
                                 </div>
                                 <?php echo form_input(['name' => 'Datum_Od', 'id' => 'date', 'placeholder' => 'Dátum kedy smena začína', 'class' => 'form-control']); ?>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -52,26 +50,52 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="inputEmail" class="cik-md-2 control-label"></label>
-            <div class="col-md-4">
-                <?php echo form_input(['name' => 'Cas_Od', 'placeholder' => 'O koľkej sa vodičovi smena začína', 'class' => 'form-control']); ?>
-            </div>
-            <div class="col-md-4">
-                <?php echo form_error('Cas_Od', '<div class="text-danger">', '</div>'); ?>
+        <div class="bootstrap-iso">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <form method="post">
+                            <div class="form-group ">
+                                <label class="control-label ">
+                                    Čas začiatku smeny
+                                </label>
+                                <div class="input-group clockpicker" data-donetext="Hotovo">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o">
+                                        </i>
+                                    </div>
+                                    <?php echo form_input(['name' => 'Cas_Od', 'placeholder' => 'O koľkej sa vodičovi smena začína', 'class' => 'form-control']); ?>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
-
-        <div class="form-group">
-            <label for="inputEmail" class="cik-md-2 control-label"></label>
-            <div class="col-md-4">
-                <?php echo form_input(['name' => 'Cas_Do', 'placeholder' => 'O koľkej sa vodičovi smena končí', 'class' => 'form-control']); ?>
-            </div>
-            <div class="col-md-4">
-                <?php echo form_error('Cas_Do', '<div class="text-danger">', '</div>'); ?>
+        <div class="bootstrap-iso">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <form method="post">
+                            <div class="form-group ">
+                                <label class="control-label ">
+                                    Čas začiatku smeny
+                                </label>
+                                <div class="input-group clockpicker" data-donetext="Hotovo">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o">
+                                        </i>
+                                    </div>
+                                    <?php echo form_input(['name' => 'Cas_Do', 'placeholder' => 'O koľkej sa vodičovi smena končí', 'class' => 'form-control']); ?>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+
 
         <div class="form-group">
             <div class="col-md-4 selectContainer">
