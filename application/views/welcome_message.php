@@ -147,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <a class=" btn btn-success" href="<?php echo site_url('home/createsmena');?>">
         Pridaj smenu
     </a>
-    <?php if($msg =$this->session->flashdata('msg_smeny')): ?>
+    <?php if($msg =$this->session->flashdata('msg_smena')): ?>
         <?php echo $msg; ?>
     <?php endif; ?>
     <table class="table" >

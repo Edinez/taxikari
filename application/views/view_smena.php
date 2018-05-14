@@ -8,7 +8,7 @@
         <span style="font-weight:bold">Datúm odkedy smena trvá</span>
         <p><?php echo $smena_data['Datum_Od']; ?></p>
 
-        <span style="font-weight:bold">Datúm pokedy smena trvá</span>
+        <span style="font-weight:bold">Datúm dokedy smena trvá</span>
         <p><?php echo $smena_data['Datum_Do']; ?></p>
 
         <span style="font-weight:bold">Čas kedy smena začína</span>

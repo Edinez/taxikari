@@ -63,4 +63,8 @@ class smena_queries extends CI_Model
         }
     }
 
+    public function delete_Smena($id){
+        return  $this->db->delete('smeny',['idSmeny'=>$id]);
+    }
+
 }

@@ -313,4 +313,14 @@ class Home extends CI_Controller {
         }
         return redirect('home');
     }
+
+    public function delete_smena($id){
+        $this->load->model('smena_queries');
+        if ($this->smena_queries->delete_Smena($id)) {
+            $this->session->set_flashdata('msg_smena','Smena bola úspečne vymazaná');
+        }else {
+            $this->session->set_flashdata('msg_smena','Vymazanie smeny neprebehlo úspešne, niekde je chyba!');
+        }
+        return redirect('home');
+    }
 }
