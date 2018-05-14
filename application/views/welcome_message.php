@@ -6,6 +6,92 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <style >h3 {
         margin-top: 80px;
     } </style>
+
+<div class="container" id="objednavka">
+    <h3> Tabulka objednávok  </h3>
+
+    <a class=" btn btn-success" href="<?php echo site_url('home/createobjednavka');?>">
+        Vytvor objednávku
+    </a>
+    <?php if($msg =$this->session->flashdata('msg_objednavka')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th scope="col">Začiatočná lokácia</th>
+            <th scope="col">Konečná lokácia</th>
+            <th scope="col">Vzdialenosť</th>
+            <th scope="col">Konečná suma</th>
+            <th scope="col">Dátum</th>
+            <th scope="col">Čas</th>
+            <th scope="col">Číslo smeny</th>
+            <th scope="col">Meno zákazníka</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($objednavka_post as $objednavka_data): ?>
+            <tr>
+                <td><?php echo $objednavka_data['zaciatok']; ?></td>
+                <td><?php echo $objednavka_data['ciel']; ?></td>
+                <td><?php echo $objednavka_data['vzdialenost']; ?></td>
+                <td><?php echo $objednavka_data['platit']." €"; ?></td>
+                <td><?php echo $objednavka_data['datum']; ?></td>
+                <td><?php echo $objednavka_data['cas']; ?></td>
+                <td><?php echo $objednavka_data['smeny']; ?></td>
+                <td><?php echo $objednavka_data['priezvisko']; ?></td>
+                <td>
+                    <?php echo anchor("home/view_objednavka/{$objednavka_data['idObjednavka']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container" id="smeny">
+    <h3> Tabulka pracovnych smien </h3>
+
+    <a class=" btn btn-success" href="<?php echo site_url('home/createsmena');?>">
+        Pridaj smenu
+    </a>
+    <?php if($msg =$this->session->flashdata('msg_smena')): ?>
+        <?php echo $msg; ?>
+    <?php endif; ?>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th scope="col">Dátum od</th>
+            <th scope="col">Dátum do</th>
+            <th scope="col">Čas od</th>
+            <th scope="col">Čas do</th>
+            <th scope="col">Vodič</th>
+            <th scope="col">Vozidlo na smene</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($smena2 as $smena_data): ?>
+                <tr>
+                    <td><?php echo $smena_data['Datum_Od']; ?></td>
+                    <td><?php echo $smena_data['Datum_Do']; ?></td>
+                    <td><?php echo $smena_data['Cas_Od']; ?></td>
+                    <td><?php echo $smena_data['Cas_Do']; ?></td>
+                    <td><?php echo $smena_data['vodicmeno']." ".$smena_data['vodicpriezvisko']; ?></td>
+                    <td><?php echo $smena_data['znacka']." ".$smena_data['model']; ?></td>
+                    <td>
+                        <?php echo anchor("home/view_smena/{$smena_data['idSmeny']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
+                        <?php echo anchor("home/delete_smena/{$smena_data['idSmeny']}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+
 <div class="container" id="zakaznici">
     <h3> Tabulka zakaznici </h3>
 
@@ -101,6 +187,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </table>
 </div>
 
+
 <div class="container" id="vozidlo">
     <h3> Tabulka vozidlo </h3>
 
@@ -137,90 +224,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td> Nič sa nenašlo</td>
             </tr>
         <?php endif; ?>
-        </tbody>
-    </table>
-</div>
-
-<div class="container" id="smeny">
-    <h3> Tabulka pracovnych smien </h3>
-
-    <a class=" btn btn-success" href="<?php echo site_url('home/createsmena');?>">
-        Pridaj smenu
-    </a>
-    <?php if($msg =$this->session->flashdata('msg_smena')): ?>
-        <?php echo $msg; ?>
-    <?php endif; ?>
-    <table class="table" >
-        <thead>
-        <tr>
-            <th scope="col">Dátum od</th>
-            <th scope="col">Dátum do</th>
-            <th scope="col">Čas od</th>
-            <th scope="col">Čas do</th>
-            <th scope="col">Vodič</th>
-            <th scope="col">Vozidlo na smene</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($smena2 as $smena_data): ?>
-                <tr>
-                    <td><?php echo $smena_data['Datum_Od']; ?></td>
-                    <td><?php echo $smena_data['Datum_Do']; ?></td>
-                    <td><?php echo $smena_data['Cas_Od']; ?></td>
-                    <td><?php echo $smena_data['Cas_Do']; ?></td>
-                    <td><?php echo $smena_data['vodic']; ?></td>
-                    <td><?php echo $smena_data['znacka']; ?></td>
-                    <td>
-                        <?php echo anchor("home/view_smena/{$smena_data['idSmeny']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
-                        <?php echo anchor("home/update_smena/{$smena_data['idSmeny']}", 'Upraviť', ['class' => 'btn btn-warning']); ?>
-                        <?php echo anchor("home/delete_smena/{$smena_data['idSmeny']}", 'Vymazať', ['class' => 'btn btn-danger']); ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-
-<div class="container" id="objednavka">
-    <h3> Tabulka objednávok  </h3>
-
-    <a class=" btn btn-success" href="<?php echo site_url('home/createobjednavka');?>">
-        Vytvor objednávku
-    </a>
-    <?php if($msg =$this->session->flashdata('msg_objednavka')): ?>
-        <?php echo $msg; ?>
-    <?php endif; ?>
-    <table class="table" >
-        <thead>
-        <tr>
-            <th scope="col">Začiatočná lokácia</th>
-            <th scope="col">Konečná lokácia</th>
-            <th scope="col">Vzdialenosť</th>
-            <th scope="col">Konečná suma</th>
-            <th scope="col">Dátum</th>
-            <th scope="col">Čas</th>
-            <th scope="col">Číslo smeny</th>
-            <th scope="col">Meno zákazníka</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($objednavka_post as $objednavka_data): ?>
-            <tr>
-                <td><?php echo $objednavka_data['zaciatok']; ?></td>
-                <td><?php echo $objednavka_data['ciel']; ?></td>
-                <td><?php echo $objednavka_data['vzdialenost']; ?></td>
-                <td><?php echo $objednavka_data['platit']." €"; ?></td>
-                <td><?php echo $objednavka_data['datum']; ?></td>
-                <td><?php echo $objednavka_data['cas']; ?></td>
-                <td><?php echo $objednavka_data['smeny']; ?></td>
-                <td><?php echo $objednavka_data['priezvisko']; ?></td>
-                <td>
-                    <?php echo anchor("home/view_objednavka/{$objednavka_data['idObjednavka']}", 'Podrobnosti', ['class' => 'btn btn-primary']); ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
         </tbody>
     </table>
 </div>
