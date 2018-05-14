@@ -45,6 +45,15 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function  createSmena() {
+        $data['vodicicombo'] = $this->smena_queries->dajMiVodicov();
+        $data['vozidlocombo'] = $this->smena_queries->dajMiVozidlo();
+        $this->load->view('template/header');
+        $this->load->view('template/navigation');
+        $this->load->view('vytvor_smena',$data);
+        $this->load->view('template/footer');
+    }
+
     public function update_zakaznici($id){
         $this->load->model('queries');
         $post = $this->queries->getSingleZakaznici($id);
@@ -146,6 +155,40 @@ class Home extends CI_Controller {
             $this->load->view('template/footer');
         }
     }
+
+    public function ulozit_smena()
+    {
+          $this->form_validation->set_rules('Datum_Od', 'Datum_Od', 'required');
+          $this->form_validation->set_rules('Datum_Do', 'Datum_Do', 'required');
+          $this->form_validation->set_rules('Cas_Od', 'Cas_Od', 'required');
+          $this->form_validation->set_rules('Cas_Do', 'Cas_Do', 'required');
+          $this->form_validation->set_rules('idVodic', 'id_Vodic1', 'required');
+          $this->form_validation->set_rules('idVozidlo', 'id_Vozidlo1', 'required');
+
+          if ($this->form_validation->run())
+
+        {
+            $data = $this->input->post();
+            unset($data['submit_smena']);
+            $this->load->model('smena_queries');
+            if ($this->smena_queries->addSmena($data)) {
+                $this->session->set_flashdata('msg_smena', 'Smena bola úspešne vytvorená');
+            } else {
+                $this->session->set_flashdata('msg_smena', 'Smena nebola úspešne vytvorená, niekde je chyba!');
+            }
+            return redirect('home');
+             }
+             else
+             {
+                 $data['vodicicombo'] = $this->smena_queries->dajMiVodicov();
+                 $data['vozidlocombo'] = $this->smena_queries->dajMiVozidlo();
+                 $this->load->view('template/header');
+                 $this->load->view('template/navigation');
+                 $this->load->view('vytvor_smena',$data);
+                 $this->load->view('template/footer');
+             }
+
+        }
 
     public function zmenit_zakaznik($id){
         $this->form_validation->set_rules('meno', 'Meno', 'required');

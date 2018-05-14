@@ -15,10 +15,22 @@ class smena_queries extends CI_Model
         }
     }
 
-    public function getSmenyVsetky(){
-        $query = $this->db->select('*')
-            ->from('smeny ');
-            return $query->result();
+    public function dajMiVodicov(){
+        $this->db->distinct();
+        $this->db->select('*')
+            ->from('vodic');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function dajMiVozidlo(){
+        $this->db->distinct();
+        $this->db->select('*')
+            ->from('vozidlo');
+
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function getSmenyVsetky2(){
@@ -28,6 +40,9 @@ class smena_queries extends CI_Model
         $this->db->join('vodic','smeny.idVodic = vodic.idVodic');
         $queri= $this->db->get();
         return $queri->result_array();
+    }
+    public function addSmena($data){
+        return $this->db->insert('smeny', $data);
     }
 
 
