@@ -19,6 +19,7 @@ class Home extends CI_Controller {
         $data['vozidlo1'] = $this->vozidlo_queries->getVozidlo();
         $data['smena2'] = $this->smena_queries->getSmenyVsetky2();
         $data['objednavka_post'] = $this->objednavka_queries->getObjednavky();
+        $data['graf'] = $this->vozidlo_queries->dajmigraf();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('welcome_message',$data);
@@ -248,10 +249,10 @@ class Home extends CI_Controller {
             unset($data['submit']);
             $this->load->model('queries');
             if($this->queries->updatePost($data,$id)){
-                $this->session->set_flashdata('msg','Dáta sa úspešne aktualizovali');
+                $this->session->set_flashdata('msg_zakaznici','Dáta sa úspešne aktualizovali');
             }
             else {
-                $this->session->set_flashdata('msg','Dáta sa neaktualizovali úspešne, niekde je chyba!');
+                $this->session->set_flashdata('msg_zakaznici','Dáta sa neaktualizovali úspešne, niekde je chyba!');
             }
             return redirect('home');
         }

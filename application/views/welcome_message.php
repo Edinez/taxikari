@@ -9,8 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container" id="objednavka">
     <h3> Tabulka objednávok </h3>
-    <div class="form-group" >
-        <select name="state" id="maxRows" class="form-control" style="width:150px; height:40px" >
+    <div class="form-group">
+        <select name="state" id="maxRows" class="form-control" style="width:150px; height:40px">
             <option value="5000">Všetky</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -66,18 +66,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 
-<!-- <canvas id="myChart" width="50" height="50"></canvas>  -->
 
 <div class="container" id="smeny">
     <h3> Tabulka pracovnych smien </h3>
-
     <a class=" btn btn-success" href="<?php echo site_url('home/createsmena'); ?>">
         Pridaj smenu
     </a>
     <?php if ($msg = $this->session->flashdata('msg_smena')): ?>
         <?php echo $msg; ?>
     <?php endif; ?>
-    <table  class="table table-bordered table-striped">
+    <table id="mytablesmeny" class="table table-bordered table-striped">
         <thead>
         <tr>
             <th scope="col">Dátum od</th>
@@ -246,4 +244,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 
-
+<canvas id="doughnut-chart" width="1100" height="300"></canvas>

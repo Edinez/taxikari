@@ -23,10 +23,18 @@ class vozidlo_queries extends CI_Model
     }
 
     public function addVozidlo($data){
-        return $this->db->insert('vozidlo', $data);
-    }
+    return $this->db->insert('vozidlo', $data);
+}
 
     public function delete_vozidlo($id){
         return  $this->db->delete('vozidlo',['idVozidlo'=>$id]);
+    }
+
+    public function dajmigraf(){
+        $this->db->select('Znacka as znacka, COUNT(*) AS pocet');
+        $this->db->from('vozidlo');
+        $this->db->group_by('znacka');
+        $queri= $this->db->get();
+        return $queri->result_array();
     }
 }

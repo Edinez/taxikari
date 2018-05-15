@@ -9,8 +9,10 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker-->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 <!-- sem idem includnut clockpicker-->
 <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
@@ -23,44 +25,44 @@
 </script>
 
 
-<style >
-    li.farbacisiel{
-        margin-right:10px;
-        color:blue;
+<style>
+    li.farbacisiel {
+        margin-right: 10px;
+        color: blue;
     }
 </style>
 
 <script>
-    var table ='#mytable';
-    $('#maxRows').on('change',function () {
+    var table = '#mytable';
+    $('#maxRows').on('change', function () {
         $('.pagination').html('');
-        var trnum=0;
+        var trnum = 0;
         var maxRows = parseInt($(this).val());
-        var totalRows = $(table+' tbody tr').length;
-        $(table+' tr:gt(0)').each(function () {
+        var totalRows = $(table + ' tbody tr').length;
+        $(table + ' tr:gt(0)').each(function () {
             trnum++;
-            if(trnum>maxRows){
+            if (trnum > maxRows) {
                 $(this).hide()
             }
-            if(trnum <=maxRows){
+            if (trnum <= maxRows) {
                 $(this).show()
             }
         });
-        if(totalRows > maxRows){
-            var pagenum = Math.ceil(totalRows/maxRows);
-            for(var i=1;i<=pagenum;){
-                $('.pagination').append('<li class="farbacisiel"  data-page="'+i+'">\<span>'+ i++ +'<span class="sr-only">(current)</span></span>\</li>').show()
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li class="farbacisiel"  data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
             }
         }
         $('.pagination li:first-child').addClass('active');
-        $('.pagination li').on('click',function () {
-            var pageNum =$(this).attr('data-page');
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page');
             var trIndex = 0
             $('.pagination li').removeClass('active');
             $(this).addClass('active');
-            $(table+' tr:gt(0)').each(function () {
+            $(table + ' tr:gt(0)').each(function () {
                 trIndex++
-                if(trIndex > (maxRows*pageNum) || trIndex <=((maxRows*pageNum)-maxRows)) {
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
                     $(this).hide()
                 } else {
                     $(this).show()
@@ -68,59 +70,70 @@
             })
         })
     })
-
 </script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
 <script>
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
+    function farby(data){
+        var coloR = [];
+
+        var dynamicColors = function () {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return "rgb(" + r + "," + g + "," + b + ")";
+        };
+
+        for (var i in data) {
+            ict_unit.push("ICT Unit " + data[i].ict_unit);
+            efficiency.push(data[i].efficiency);
+            coloR.push(dynamicColors());
+        }
+        return coloR;
+    }
+</script>
+
+<script>
+    <?php
+    $retazec ="";
+    $cisla="";
+
+    foreach ($graf as $hodnoty) {
+        $retazec.=  " ' ".$hodnoty['znacka']." ', ";
+        $cisla.=  $hodnoty['pocet']." , ";
+    }
+    ?>
+    new Chart(document.getElementById("doughnut-chart"), {
+        type: 'doughnut',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
+            labels: [<?php echo $retazec; ?>],
+            datasets: [
+                {
+                    label: "Population (millions)",
+                    backgroundColor:  ['#00abe5','#4bc69d','#ff00ff',"#3e95cd",'#6b6f70','#00e5d2','#2b00ed','#ff0000','#ddef13','#ce6d6d',"#8e5ea2",'#50cc26','#f25400','#ed8249','#ed9d49','#ff8200','#ffb600','#d3b058',  "#3cba9f", "#e8c3b9",'#abb25e', "#c45850",'#646a72','#186bdb','#7f00ff','#b600ff','#b600ff','#ff00ae','#ff005d','#ff005d','#7c2525'],
+                    data: [<?php echo $cisla; ?>]
+                }
+            ]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
+            title: {
+                display: true,
+                text: 'Štatistika automobilov áut taxislužby',
+                responsive: false
             }
         }
     });
 </script>
 
 <script>
-    $(document).ready(function(){
-        var date_input=$('input[name="Datum_Od"]');
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    $(document).ready(function () {
+        var date_input = $('input[name="Datum_Od"]');
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
             format: 'yyyy/mm/dd',
-            container:container,
+            container: container,
             todayHighlight: true,
             autoclose: true,
         })
@@ -129,12 +142,12 @@
 </script>
 
 <script>
-    $(document).ready(function(){
-        var date_input=$('input[name="Datum_Do"]');
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    $(document).ready(function () {
+        var date_input = $('input[name="Datum_Do"]');
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
             format: 'yyyy/mm/dd',
-            container:container,
+            container: container,
             todayHighlight: true,
             autoclose: true,
         })
@@ -143,12 +156,12 @@
 
 
 <script>
-    $(document).ready(function(){
-        var date_input=$('input[name="Datum"]');
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    $(document).ready(function () {
+        var date_input = $('input[name="Datum"]');
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
             format: 'yyyy/mm/dd',
-            container:container,
+            container: container,
             todayHighlight: true,
             autoclose: true,
         })
