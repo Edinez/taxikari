@@ -22,6 +22,7 @@ class Home extends CI_Controller {
         $data['graf'] = $this->vozidlo_queries->dajmigraf();
         $data['grafpriemer'] = $this->vozidlo_queries->dajmigrafPriemerCena();
         $data['grafsucet'] = $this->vozidlo_queries->dajmigrafSucet();
+        $data['grafprogres'] = $this->vozidlo_queries->dajmigrafProgres();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('welcome_message',$data);

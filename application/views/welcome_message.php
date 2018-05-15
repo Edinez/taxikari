@@ -66,7 +66,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 
+
 <canvas id="priemer" width="1200" height="250"></canvas>
+
 
 <div class="container" id="smeny">
     <h3> Tabulka pracovnych smien </h3>
@@ -106,6 +108,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </tbody>
     </table>
 </div>
+
+
+<canvas id="zarobokzaroky" width="1100" height="250"></canvas>
 
 
 <div class="container" id="zakaznici">

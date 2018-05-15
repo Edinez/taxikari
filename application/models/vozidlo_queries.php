@@ -56,4 +56,12 @@ class vozidlo_queries extends CI_Model
         return $queri->result_array();
     }
 
+    public function dajmigrafProgres(){
+        $this->db->select('SUM(Konecna_suma) as suma ,YEAR(datum) as rok');
+        $this->db->from('objednavka');
+        $this->db->group_by('rok');
+        $queri= $this->db->get();
+        return $queri->result_array();
+    }
+
 }

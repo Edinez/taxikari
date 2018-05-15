@@ -75,7 +75,49 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
+<script>
 
+    <?php
+    $retazec = "";
+    $cisla = "";
+
+    foreach ($grafprogres as $hodnotyprogres) {
+        $retazec .= " ' " . $hodnotyprogres['rok'] . " ', ";
+        $cisla .= $hodnotyprogres['suma'] . " , ";
+    }
+    ?>
+
+    new Chart(document.getElementById("zarobokzaroky"), {
+        type: 'horizontalBar',
+        data: {
+            labels: [<?php echo $retazec; ?>],
+            datasets: [
+                {
+                    label: "Zárobok",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: [<?php echo $cisla; ?>],
+                }
+            ]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value + ' €';
+                        }
+                    }
+                }]
+            },
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Zárobok taxislužby za jednotlivé roky'
+            }
+        }
+    });
+
+</script>
 
 
 <script>
