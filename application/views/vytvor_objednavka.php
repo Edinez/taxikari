@@ -95,7 +95,7 @@
                 <span style="font-weight:bold" >Priradiť zákazníka</span>
                 <select class="form-control" name="idZakaznici">
                     <?php foreach ($zakaznikcombo as $zakaznik):
-                        echo "<option value='" . $zakaznik['idZakaznici'] . "'>" . $zakaznik['Priezvisko'] . "</option>";
+                        echo "<option value='" . $zakaznik['idZakaznici'] . "'>" . $zakaznik['Priezvisko'] ." ".$zakaznik['Meno']. "</option>";
                     endforeach; ?>
                 </select>
             </div>

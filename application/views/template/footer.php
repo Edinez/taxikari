@@ -75,36 +75,62 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
+
+
 <script>
-    function farby(data){
-        var coloR = [];
+    <?php
+    $retazec = "";
+    $cisla = "";
 
-        var dynamicColors = function () {
-            var r = Math.floor(Math.random() * 255);
-            var g = Math.floor(Math.random() * 255);
-            var b = Math.floor(Math.random() * 255);
-            return "rgb(" + r + "," + g + "," + b + ")";
-        };
-
-        for (var i in data) {
-            ict_unit.push("ICT Unit " + data[i].ict_unit);
-            efficiency.push(data[i].efficiency);
-            coloR.push(dynamicColors());
-        }
-        return coloR;
+    foreach ($grafpriemer as $hodnotypriemer) {
+        $retazec .= " ' " . $hodnotypriemer['zakaznik'] . " ', ";
+        $cisla .= $hodnotypriemer['suma'] . " , ";
     }
+    ?>
+    new Chart(document.getElementById("priemer"), {
+        type: 'bar',
+        data: {
+            labels: [<?php echo $retazec; ?>],
+            datasets: [
+                {
+                    label: "€",
+                    backgroundColor: ['#00abe5', '#4bc69d', '#ff00ff', "#3e95cd", '#6b6f70', '#00e5d2', '#2b00ed', '#ff0000', '#ddef13', '#ce6d6d', "#8e5ea2", '#50cc26', '#f25400', '#ed8249', '#ed9d49', '#ff8200', '#ffb600', '#d3b058', "#3cba9f", "#e8c3b9", '#abb25e', "#c45850", '#646a72', '#186bdb', '#7f00ff', '#b600ff', '#b600ff', '#ff00ae', '#ff005d', '#ff005d', '#7c2525'],
+                    data: [<?php echo $cisla; ?>]
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        // Include a dollar sign in the ticks
+                        callback: function(value, index, values) {
+                            return value + ' €';
+                        }
+                    }
+                }]
+            },
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Priemerná cena jázd zákazníka',
+                responsive: false
+            }
+        }
+    });
 </script>
 
 <script>
     <?php
-    $retazec ="";
-    $cisla="";
+    $retazec = "";
+    $cisla = "";
 
     foreach ($graf as $hodnoty) {
-        $retazec.=  " ' ".$hodnoty['znacka']." ', ";
-        $cisla.=  $hodnoty['pocet']." , ";
+        $retazec .= " ' " . $hodnoty['znacka'] . " ', ";
+        $cisla .= $hodnoty['pocet'] . " , ";
     }
     ?>
+
     new Chart(document.getElementById("doughnut-chart"), {
         type: 'doughnut',
         data: {
@@ -112,7 +138,7 @@
             datasets: [
                 {
                     label: "Population (millions)",
-                    backgroundColor:  ['#00abe5','#4bc69d','#ff00ff',"#3e95cd",'#6b6f70','#00e5d2','#2b00ed','#ff0000','#ddef13','#ce6d6d',"#8e5ea2",'#50cc26','#f25400','#ed8249','#ed9d49','#ff8200','#ffb600','#d3b058',  "#3cba9f", "#e8c3b9",'#abb25e', "#c45850",'#646a72','#186bdb','#7f00ff','#b600ff','#b600ff','#ff00ae','#ff005d','#ff005d','#7c2525'],
+                    backgroundColor: ['#00abe5', '#4bc69d', '#ff00ff', "#3e95cd", '#6b6f70', '#00e5d2', '#2b00ed', '#ff0000', '#ddef13', '#ce6d6d', "#8e5ea2", '#50cc26', '#f25400', '#ed8249', '#ed9d49', '#ff8200', '#ffb600', '#d3b058', "#3cba9f", "#e8c3b9", '#abb25e', "#c45850", '#646a72', '#186bdb', '#7f00ff', '#b600ff', '#b600ff', '#ff00ae', '#ff005d', '#ff005d', '#7c2525'],
                     data: [<?php echo $cisla; ?>]
                 }
             ]
@@ -120,7 +146,7 @@
         options: {
             title: {
                 display: true,
-                text: 'Štatistika automobilov áut taxislužby',
+                text: 'Počet značiek áut taxislužby',
                 responsive: false
             }
         }

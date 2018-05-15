@@ -20,6 +20,7 @@ class Home extends CI_Controller {
         $data['smena2'] = $this->smena_queries->getSmenyVsetky2();
         $data['objednavka_post'] = $this->objednavka_queries->getObjednavky();
         $data['graf'] = $this->vozidlo_queries->dajmigraf();
+        $data['grafpriemer'] = $this->vozidlo_queries->dajmigrafPriemerCena();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('welcome_message',$data);
