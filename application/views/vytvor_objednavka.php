@@ -73,7 +73,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 ">
-                        <form method="post">
                             <div class="form-group ">
                                 <label class="control-label ">
                                     Čas jazdy
@@ -86,7 +85,6 @@
                                     <?php echo form_input(['name' => 'Cas', 'placeholder' => 'O koľkej jazda prebehla', 'class' => 'form-control']); ?>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>

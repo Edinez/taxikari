@@ -201,7 +201,7 @@ class Home extends CI_Controller {
         }
 
     public function ulozit_objednavka(){
-       /*    $this->form_validation->set_rules('Zaciatocna_lokacia', 'Zaciatocna_lokacia', 'required');
+           $this->form_validation->set_rules('Zaciatocna_lokacia', 'Zaciatocna_lokacia', 'required');
            $this->form_validation->set_rules('Konecna_lokacia', 'Konecna_lokacia', 'required');
            $this->form_validation->set_rules('Vzdialenost', 'Vzdialenost', 'required');
            $this->form_validation->set_rules('Konecna_suma', 'Konecna_suma', 'required');
@@ -212,7 +212,7 @@ class Home extends CI_Controller {
 
            if ($this->form_validation->run()){
 
-            */
+
         $data = $this->input->post();
         unset($data['submit_objednavka']);
         $this->load->model('objednavka_queries');
@@ -222,7 +222,7 @@ class Home extends CI_Controller {
             $this->session->set_flashdata('msg_objednavka', 'Objednávka nebola úspešne vytvorená, niekde je chyba!');
         }
         return redirect('home');
-        /*    }
+            }
             else
             {
                 $data['smenacombo'] = $this->objednavka_queries->dajMiSmeny();
@@ -232,7 +232,7 @@ class Home extends CI_Controller {
                 $this->load->view('vytvor_objednavka',$data);
                 $this->load->view('template/footer');
             }
-*/
+
     }
 
     public function zmenit_zakaznik($id){
