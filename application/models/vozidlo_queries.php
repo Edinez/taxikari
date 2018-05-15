@@ -47,4 +47,13 @@ class vozidlo_queries extends CI_Model
         return $queri->result_array();
     }
 
+    public function dajmigrafSucet(){
+        $this->db->select('SUM(Konecna_suma) as suma,zakaznici.Meno as zakaznik');
+        $this->db->from('objednavka');
+        $this->db->join('zakaznici', 'objednavka.idZakaznici=zakaznici.idZakaznici');
+        $this->db->group_by('zakaznik');
+        $queri= $this->db->get();
+        return $queri->result_array();
+    }
+
 }

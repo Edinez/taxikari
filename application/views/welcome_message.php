@@ -157,6 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </table>
 </div>
 
+<canvas id="sucet" width="1200" height="400"></canvas>
 
 <div class="container" id="vodici">
     <h3> Tabulka vodiči </h3>

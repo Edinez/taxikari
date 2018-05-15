@@ -21,6 +21,7 @@ class Home extends CI_Controller {
         $data['objednavka_post'] = $this->objednavka_queries->getObjednavky();
         $data['graf'] = $this->vozidlo_queries->dajmigraf();
         $data['grafpriemer'] = $this->vozidlo_queries->dajmigrafPriemerCena();
+        $data['grafsucet'] = $this->vozidlo_queries->dajmigrafSucet();
         $this->load->view('template/header');
         $this->load->view('template/navigation');
         $this->load->view('welcome_message',$data);

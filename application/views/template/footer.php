@@ -77,6 +77,39 @@
 
 
 
+
+<script>
+    <?php
+    $retazec = "";
+    $cisla = "";
+
+    foreach ($grafsucet as $hodnotysucet) {
+        $retazec .= " ' " . $hodnotysucet['zakaznik'] . " ', ";
+        $cisla .= $hodnotysucet['suma'] . " , ";
+    }
+    ?>
+    new Chart(document.getElementById("sucet"), {
+        type: 'polarArea',
+        data: {
+            labels: [<?php echo $retazec; ?>],
+            datasets: [
+                {
+                    label: "",
+                    backgroundColor: ['#00abe5', '#4bc69d', '#ff00ff', "#3e95cd", '#6b6f70', '#00e5d2', '#2b00ed', '#ff0000', '#ddef13', '#ce6d6d', "#8e5ea2", '#50cc26', '#f25400', '#ed8249', '#ed9d49', '#ff8200', '#ffb600', '#d3b058', "#3cba9f", "#e8c3b9", '#abb25e', "#c45850", '#646a72', '#186bdb', '#7f00ff', '#b600ff', '#b600ff', '#ff00ae', '#ff005d', '#ff005d', '#7c2525'],
+                    data: [<?php echo $cisla; ?>]
+
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Celková suma ktorú zákazník v taxislužbe minul v  €'
+            }
+        }
+    });
+</script>
+
 <script>
     <?php
     $retazec = "";
@@ -103,17 +136,16 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        // Include a dollar sign in the ticks
-                        callback: function(value, index, values) {
+                        callback: function (value, index, values) {
                             return value + ' €';
                         }
                     }
                 }]
             },
-            legend: { display: false },
+            legend: {display: false},
             title: {
                 display: true,
-                text: 'Priemerná cena jázd zákazníka',
+                text: 'Priemerná cena jednej jazdy zákazníka',
                 responsive: false
             }
         }
@@ -137,7 +169,7 @@
             labels: [<?php echo $retazec; ?>],
             datasets: [
                 {
-                    label: "Population (millions)",
+                    label: "",
                     backgroundColor: ['#00abe5', '#4bc69d', '#ff00ff', "#3e95cd", '#6b6f70', '#00e5d2', '#2b00ed', '#ff0000', '#ddef13', '#ce6d6d', "#8e5ea2", '#50cc26', '#f25400', '#ed8249', '#ed9d49', '#ff8200', '#ffb600', '#d3b058', "#3cba9f", "#e8c3b9", '#abb25e', "#c45850", '#646a72', '#186bdb', '#7f00ff', '#b600ff', '#b600ff', '#ff00ae', '#ff005d', '#ff005d', '#7c2525'],
                     data: [<?php echo $cisla; ?>]
                 }
@@ -146,7 +178,7 @@
         options: {
             title: {
                 display: true,
-                text: 'Počet značiek áut taxislužby',
+                text: 'Počet značiek áut v taxislužbe',
                 responsive: false
             }
         }
